@@ -1,0 +1,130 @@
+.background{
+  background-image: url('../../../img/background/bg-login.svg');
+  background-size: 55%;
+  background-repeat: no-repeat;
+  background-position-x: 40px;
+  background-position-y: 20px;
+  background-repeat: no-repeat;
+  padding-top: 20vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  
+ background-color: white;
+}
+.form-login{
+  background: white;
+  padding: 70px 100px 40px 100px; 
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(187, 187, 187, 1);
+}
+.gridTableLogin{
+  margin: auto;
+  width: 500px;
+}
+.row-form{
+  background: yellow; 
+  position: relative; 
+  left: 29%; 
+}
+.wrapper-icon{
+  background-color: #646EFF;
+  padding: 2px 3px;
+  color: white;
+  border-radius:5px 0px 5px 0px ;
+  font-size: 20px;
+}
+.input-login{
+  border-radius: 0px 5px 5px 0px;
+}
+.btn-login{
+  background-color: #08D7C5  !important;
+  color: white;
+  font-weight: 700;
+  padding: 4px 40%;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.btn-login:hover{
+  color:white
+}
+
+@media (min-width:320px) and (max-width:991px){
+  .background{
+    background-size: 80%, cover;
+    background-repeat: no-repeat;
+    background-position-x: 30px;
+    background-position-y: 100px;
+  }
+  .row-form {
+    background: yellow;
+    position: relative;
+    left: 3%; 
+  }
+  .form-login {
+    padding: 70px 20px 20px 20px;
+    border-radius: 20px;
+  }
+  .gridTableLogin{
+    margin: auto;
+    width: 300px;
+  }
+  .btn-login {
+    background-color: #08D7C5 !important;
+    color: white !important;
+    font-weight: 700;
+    padding: 4px 37%;
+    font-size: 20px;
+    border-radius: 10px;
+
+  }
+  .pesanError{
+      display: block;
+      position: absolute;
+      align-items: center;
+      justify-content: center;
+      margin-top: -60px !important;
+      margin-left: 15px !important;
+  }
+
+
+}
+@media screen and (min-width:640px) and (max-width:991px){
+  .row-form {
+    background: yellow;
+    position: relative;
+    left: 25%;
+}
+}
+
+@media screen and (min-width:768px) and (max-width:991px){
+  .background {
+    background-size: 90%, cover;
+    background-repeat: no-repeat;
+    background-position-x: 30px;
+    background-position-y: 100px;
+}
+.row-form {
+  background: yellow;
+  position: relative;
+}
+.row-form {
+  background: yellow;
+  position: relative;
+  left: 19%; 
+}
+.form-login {
+  background: white;
+  padding: 70px 100px 40px 100px; 
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px 0px rgba(187, 187, 187, 1);
+
+}
+.gridTableLogin{
+  margin: auto;
+  width: 500px;
+}
+
+}
