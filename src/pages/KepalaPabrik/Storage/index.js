@@ -1,21 +1,23 @@
 import React from 'react'
-import Home from './Component/Home'
+import { Storage } from './Component/Storage'
 
 export default function index() {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-12 col-sm-12">
+        <div className="col-md-12">
           <h2>
-            Dashboard
+            Informasi Persediaan
           </h2>
         </div>
       </div>
-      <div className="row" style={{ marginTop: '50px' }}>
-        <div className="col-md-12 col-sm-12">
-          <Home />
+
+      <div className="row">
+        <div className="col-md-12">
+          <Storage />
         </div>
       </div>
     </div>
   )
 }
+

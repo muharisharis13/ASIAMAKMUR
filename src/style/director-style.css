@@ -10,6 +10,8 @@ html, body {
   /* IE 11 */
   scrollbar-width: none;
   /* Firefox 64 */
+
+  font-size:14px;
 }
 
 ::-webkit-scrollbar {
@@ -124,12 +126,11 @@ body.fixed .wrapper {
 
 /* Content */
 
-/* 
 .content {
   padding: 20px 15px;
   background: white;
   overflow: auto;
-} */
+}
 
 /* Utility */
 
@@ -1527,11 +1528,14 @@ body section div header .logo .icon {
   -moz-border-radius: 3px !important;
   border-radius: 3px !important;*/
   box-shadow: none;
+  height:0% !important;
+  background:none !important;
 }
 
 .form-control:focus {
-  border-color: #3c8dbc !important;
+  border-color: none !important;
   box-shadow: none;
+  background: none !important;
 }
 
 .form-group.has-success label {

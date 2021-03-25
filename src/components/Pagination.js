@@ -16,7 +16,7 @@ export const Pagination = () => {
     <Table style={{ padding: '0px 10px' }}>
       <tr >
         <td>
-          <BtnPag className="btn btn-primary">
+          <BtnPag className="btn">
             Prev
           </BtnPag>
         </td>
@@ -24,7 +24,7 @@ export const Pagination = () => {
           1 of 2
         </td>
         <td>
-          <BtnPag className="btn btn-primary">
+          <BtnPag className="btn">
             Next
           </BtnPag>
         </td>

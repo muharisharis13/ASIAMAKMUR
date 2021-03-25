@@ -2,8 +2,10 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Collapse } from 'react-bootstrap'
 import { Context } from './Store'
-
-import { format } from 'date-fns'
+import CurrencyInput from 'react-currency-input-field';
+import moment from 'moment'
+import { ConsoleSqlOutlined, DatabaseOutlined, DeleteOutlined } from '@ant-design/icons';
+import { List } from 'antd';
 
 
 const TitleName = styled.span`
@@ -32,14 +34,49 @@ color:white;
 `
 const Background = styled.div`
 background-color:#f6f6f6;
+padding:20px 10px;
+position: relative;
 `
 
-export const Invoice = ({ openInvoice }) => {
-  const { data2, qty } = useContext(Context)
+const FieldTotal = styled(CurrencyInput)`
+border:none ;
+font-size:19px;
+font-weight:600;
+color:white;
+`
+
+const TextTotal = styled.span`
+font-weight:600;
+font-size:18px;
+color:white;
+`
+
+export default class Invoice extends React.Component {
+  static contextType = Context
+  render() {
+    const { openInvoice, changebtn } = this.props
+    const { data2, qty, dispatch } = this.context
+
+
+    let sum = data2.reduce(function (prev, current) {
+      return prev + current.total
+    }, 0)
+
+
+    const DeleteData = (index) => {
+      console.log(data2[0])
+      let deleteArr = data2.splice(index, 0)
+
+      dispatch({
+        type: 'REMOVE_DATA',
+        data2: deleteArr
+      })
+      console.log('ini data : ', deleteArr)
+    }
 
 
   return (
-    <Background>
+    <Background className="container-fluid">
 
       <Collapse in={openInvoice}>
         <div id="example-collapse-text">
@@ -57,7 +94,7 @@ export const Invoice = ({ openInvoice }) => {
                 <tr>
                   <td>
                     <span>
-                      Tanjung Morawa No. 38 B
+                      Jln. Sei Belumai Medan - Tanjung Morawa Km 16.5, Limau Manis Kab. Deli Serdang, Sumatera Utara 20362
                 </span>
                   </td>
                 </tr>
@@ -119,7 +156,7 @@ export const Invoice = ({ openInvoice }) => {
                       </th>
                       <td>
                         <span>
-                          {format(item.tanggal, 'YYYY MMMM DD')}
+                          {moment(item.tanggal).format('YYYY MMMM DD')}
                         </span>
                       </td>
                     </tr>
@@ -129,7 +166,7 @@ export const Invoice = ({ openInvoice }) => {
                       </th>
                       <td>
                         <span>
-                          {format(new Date().setMonth(new Date().getMonth() + 1), 'YYYY MMMM DD')}
+                          {moment(new Date().setMonth(new Date().getMonth() + 1)).format('YYYY MMMM DD')}
                         </span>
                       </td>
                     </tr>
@@ -141,7 +178,7 @@ export const Invoice = ({ openInvoice }) => {
           }
 
 
-          <div className="row">
+          <div className="row" style={{ marginTop: '20px' }}>
             <div className="col-md-12">
               <table className="table">
                 <Thead>
@@ -150,10 +187,10 @@ export const Invoice = ({ openInvoice }) => {
                     <th>Qty</th>
                     <th>Jenis</th>
                     <th>@</th>
-                    <th>Total</th>
+                    <th>SubTotal</th>
                   </tr>
                 </Thead>
-                <tbody>
+                <tbody style={{ position: 'relative' }}>
                   {
                     data2.map((item, index) => (
                       <tr key={index}>
@@ -172,6 +209,14 @@ export const Invoice = ({ openInvoice }) => {
                         <td>
                           {item.total}
                         </td>
+                        {
+                          changebtn ? null :
+                            <div style={{ position: 'absolute', right: 60 }}>
+                              <span className="btn" onClick={() => DeleteData(index)}>
+                                <DeleteOutlined />
+                              </span>
+                            </div>
+                        }
                       </tr>
 
 
@@ -179,11 +224,35 @@ export const Invoice = ({ openInvoice }) => {
                   }
                 </tbody>
               </table>
+
+
             </div>
           </div>
+          <table style={{ position: 'absolute', background: 'grey', right: '20px' }}>
+            <tr>
+              <td style={{ paddingLeft: '20px' }}>
+                <TextTotal>Total</TextTotal>
+              </td>
+              <td>
+                <FieldTotal
+                  id="validation-example-2-field"
+                  placeholder="$1,234,567"
+                  allowDecimals={false}
+                  className={`form-control `}
+                  prefix={'Rp. '}
+                  step={10}
+                  value={sum}
+                  disabled
+                />
+              </td>
+
+            </tr>
+          </table>
 
         </div>
       </Collapse>
     </Background>
-  )
+
+)
+  }
 }

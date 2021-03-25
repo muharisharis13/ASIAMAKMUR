@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Datepicker from 'react-datepicker'
 import '../../../../App.css'
+import { BtnProses } from '../../../styles'
 
 
 const InputQTY = styled.input`
@@ -19,59 +20,123 @@ const TextKeterangan = styled.textarea`
 resize : none;
 `
 
-export const InputData = () => {
+export const InputDataInventory = () => {
 
   const [date, setDate] = useState(new Date())
 
   return (
-    <>
-      <table className="table">
-        <tr>
-        <span>Jenis</span>
-        </tr>
-        <tr>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-12">
+          <h2>
+            Bahan Baku Yang Keluar
+          </h2>
+        </div>
+      </div>
 
-            <span style={{ marginLeft: '50px' }} >
-              <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
-              <label className="form-check-label" for="exampleRadios1">
-                Botol
-            </label>
-            </span>
-            <span style={{ marginLeft: '100px' }} >
-              <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-              <label className="form-check-label" for="exampleRadios2">
-                Cup
-            </label>
-          </span>
-        </tr>
-      </table>
+      <div className="row">
+        <div className="col-md-6 col-sm-6">
+          <table className="table">
+            <tr>
+              <th>
+                Jenis
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <select name="Jenis" id="Jenis" className="form-control">
+                  <option value="Botol">Botol</option>
+                  <option value="Cup">Cup</option>
+                </select>
+              </td>
+            </tr>
 
-      <table className="table">
-        <tr>
-          <span>Jumlah Karton</span>
-        </tr>
-        <tr>
-          <input type="text" className="form-control" />
-        </tr>
-      </table>
+          </table>
+          <table className="table">
+            <tr>
+              <td>
+                <input type="text" className="form-control" />
+              </td>
+            </tr>
+          </table>
+          <table className="table">
+            <tr>
+              <th>
+                Jumlah Kardus
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" className="form-control" />
+              </td>
+            </tr>
+          </table>
+          <table className="table">
+            <tr>
+              <th>
+                Jumlah Sedotan
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" className="form-control" />
+              </td>
+            </tr>
+          </table>
+          <table className="table">
+            <tr>
+              <th>
+                Jumlah Lakban
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" className="form-control" />
+              </td>
+            </tr>
+          </table>
+          <table className="table">
+            <tr>
+              <th>
+                Jumlah Lid
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <input type="text" className="form-control" />
+              </td>
+            </tr>
+          </table>
+          {/* <table className="table">
 
-      <table className="table">
-        <tr>
-          Jumlah Sedotan
-      </tr>
-        <tr>
-        <input type="text" className="form-control" />
-        </tr>
-      </table>
 
-      <table className="table">
-        <tr>
-          <span>Jumlah Botol/Cup</span>
-      </tr>
-        <tr>
-          <input type="text" className="form-control" />
-        </tr>
-      </table>
-    </>
+            <tr>
+              <td>
+                <span>
+                  Jumlah Botol / Cup
+              </span>
+              </td>
+              <td>
+                :
+            </td>
+              <td >
+                <input type="text" className="form-control" />
+              </td>
+            </tr>
+
+          </table> */}
+
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-md-6 ">
+          <BtnProses className="btn btn-primary" style={{ float: 'right' }}>
+            Tambahkan
+          </BtnProses>
+        </div>
+      </div>
+
+    </div>
   )
 }

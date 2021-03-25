@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { ModalAddPicture } from '../../../../components/Modal/ModalAddPicture'
+import { Context } from '../../../../components/Store'
 import { RowTable } from '../../../styles'
 
 
@@ -10,61 +12,105 @@ text-align:center;
 `
 
 export const TableData = () => {
+
+  const { dispatch, show } = useContext(Context)
+
+  const handleShow = () => {
+    dispatch({
+      type: 'SHOW',
+      show: !show
+    })
+  }
+
   return (
-    <table className="table" >
-      <Thead>
-        <tr>
-          <th>Tanggal</th>
-          <th>Jenis</th>
-          <th>Jumlah</th>
-          <th>Harga</th>
-          <th>Total</th>
-          <th>Informasi Customer</th>
-          <th>Catatan</th>
-
-
-        </tr>
-      </Thead>
-
-      <tr>
-        <td>
-          07 Feb 2021
-          </td>
-        <td>
-          <span>
-            Botol
-            </span>
-        </td>
-        <td>
-          <span>
-            200
-            </span>
-        </td>
-        <td>
-          <span>
-            12000
-            </span>
-        </td>
-        <td>
-          <span>
-            120000
-            </span>
-        </td>
-        <td>
+    <>
+      <ModalAddPicture
+        handleShow={handleShow}
+      />
+      <table className="table table-bordered" >
+        <Thead>
           <tr>
-            <td>
-              Kepada
-            </td>
-            <td>
-              : Muharis
-            </td>
-          </tr>
-        </td>
+            <th>Tanggal</th>
+            <th>Info Produk</th>
+            <th>Informasi Customer</th>
+            <th>Catatan</th>
+            <th>Status</th>
+            <th>Take Action</th>
 
-        <td>
-          Produk Sudah Di hitung Ulang semua total 600 pcs tanpa rusak
-          </td>
-      </tr>
-    </table>
+
+          </tr>
+        </Thead>
+        <tbody>
+          <tr>
+            <td style={{ width: 100 }}>
+              <span>07 Feb 2021</span>
+            </td>
+            <td style={{ width: 200 }}>
+              <table>
+                <tr>
+                  <th>Jenis</th>
+                  <td>: <span> Botol</span></td>
+                </tr>
+                <tr>
+                  <th> Jumlah </th>
+                  <td>: <span>200</span></td>
+                </tr>
+                <tr>
+                  <th>harga</th>
+                  <td>: <span>11.000</span> </td>
+                </tr>
+                <tr>
+                  <th>SubTotal</th>
+                  <td>: <span>2.200.000</span> </td>
+                </tr>
+                <tr>
+                  <th>Total</th>
+                  <td>: <span>2.200.000</span> </td>
+                </tr>
+              </table>
+            </td>
+            <td style={{ width: 400 }}>
+              <table>
+                <tr>
+                  <th>
+                    Kepada
+              </th>
+
+                <td>
+                    : Muharis
+              </td>
+                </tr>
+                <tr>
+                  <th>
+                    Alamat
+              </th>
+                  <td>
+                    : jln. Lengkuas No 38 b Tebing Tinggi Sumatera Utara
+              </td>
+                </tr>
+
+              </table>
+
+            </td>
+
+            <td style={{ width: 200 }}>
+              Produk Sudah Di hitung Ulang semua total 600 pcs tanpa rusak
+            </td>
+            <td>
+              Belum Lunas
+            </td>
+            <td>
+              <span className="btn btn-primary"
+                onClick={handleShow}
+              >
+                Add Image
+              </span>
+            </td>
+        </tr>
+
+        </tbody>
+
+      </table>
+    </>
   )
 }

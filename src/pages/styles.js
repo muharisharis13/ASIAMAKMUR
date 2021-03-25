@@ -56,7 +56,7 @@ border-radius:10px;
 
 export const BtnProses = styled.button`
 background:${color}!important;
-padding:5px 10px;
+padding:5px 20px !important;
 font-weight:700;
 color:white;
 `
@@ -64,12 +64,14 @@ export const BtnPag = styled.span`
 background-color: #1687a7 !important;
 font-weight:700;
 color:white;
-
+&:hover{
+  color:white;
+}
 `
 
 export const BtnSearch = styled.span`
 background:#1687a7 !important;
-padding:7px 8px;
+padding:4px 8px;
 border-radius:0px 10px 10px 0px;
 float:left;
 `

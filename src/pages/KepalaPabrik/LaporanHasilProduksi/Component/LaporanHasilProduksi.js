@@ -18,24 +18,6 @@ export default function LaporanHasilProduksi() {
 
   return (
     <>
-      <section>
-        <div className="row">
-          <div className="col-md-5 col-sm-12">
-            <InputData />
-          </div>
-
-        </div>
-        <div className="row" style={{ marginTop: '20px' }}>
-          <div className="col-md-5 col-sm-12">
-            <BtnProses className="btn btn-primary" style={{ float: 'right', left: '0px' }}>
-              Proses
-            </BtnProses>
-          </div>
-        </div>
-
-      </section>
-
-
       <div className="row" style={{ marginTop: '50px' }}>
         <div className="col-md-5 col-sm-6">
           <FilterDate />

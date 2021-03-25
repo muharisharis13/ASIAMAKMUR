@@ -13,10 +13,12 @@ export const TableData = () => {
       <Thead>
         <tr>
           <th>Tanggal Dan Waktu</th>
-          <th>Nama Barang</th>
           <th>Jumlah Sedotan</th>
           <th>Jumlah Kardus</th>
-          <th>Jumlah Botol / Cup</th>
+          <th>Jumlah Botol</th>
+          <th>Jumlah Cup</th>
+          <th>Jumlah Lakban</th>
+          <th>Jumlah Kardus</th>
 
         </tr>
       </Thead>
@@ -25,11 +27,18 @@ export const TableData = () => {
           <td>
             07 Feb 2021
           </td>
-          <td>
-            Botol 500 ml
-          </td>
+
           <td>
             200 pcs
+          </td>
+          <td>
+            150 pcs
+          </td>
+          <td>
+            150 pcs
+          </td>
+          <td>
+            150 pcs
           </td>
           <td>
             150 pcs

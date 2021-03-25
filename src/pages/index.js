@@ -1,1 +1,0 @@
-export { default as DashboardKepalaPabrik } from './KepalaPabrik/Dashboard/index'

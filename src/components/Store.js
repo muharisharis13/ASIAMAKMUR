@@ -3,7 +3,9 @@ import React, { createContext, useReducer } from 'react';
 const initialState = {
   qty: '',
   jenis: '',
-  data2: []
+  data2: [],
+  show: false,
+  collapsed: true,
 }
 
 export const Context = createContext()
@@ -29,6 +31,27 @@ const reducer = (state, action) => {
 
     }
 
+  }
+  else if (action.type === 'REMOVE_DATA') {
+    return {
+
+      ...state,
+      data2: action.data2
+
+    }
+
+  }
+  else if (action.type === 'SHOW') {
+    return {
+      ...state,
+      show: action.show
+    }
+  }
+  else if (action.type === 'COLLAPS') {
+    return {
+      ...state,
+      collapsed: action.collapsed
+    }
   }
 
   return state
